@@ -1,0 +1,33 @@
+language: node_js
+
+cache:
+  directories:
+    - node_modules
+    - ~/.npm
+
+node_js:
+  - '12'
+
+git:
+  depth: 3
+
+script:
+  - yarn test
+
+notifications:
+  slack: lootvoid:uLhwu192k1JyeDTbTUxM9KbX
+  email:
+    recipients:
+      - chucho4720013@gmail.com
+      - jey4720013@gmail.com
+    on_success: always
+    on_failure: always
+
+deploy:
+  provide: heroku
+  skip_cleanup: true
+  keep-history: true
+  api_key: 54ef6d2e-e088-4c21-9c2f-50748ce69a03
+  app: platzi-store-jmr-mejia
+  on:
+    repo: JMR-Mejia/platzi-store-backend
